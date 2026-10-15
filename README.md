@@ -30,6 +30,18 @@ Check the file without printing the password or the token:
 python run.py --check
 ```
 
+## Team
+
+Stand in the same lobby as her and invite her to your team the usual way. She accepts the invite and says `I'm on the team.`
+
+## Party
+
+She joins from the lobby. She looks for a party named `FIRST`.
+
+Create that party as a normal game. Leave it open: not solo, and not locked with a password. She checks the list, says `I'm coming.`, and says `I'm in.` once she has loaded.
+
+A solo party cannot be joined. If `FIRST` is solo, she says so and stays in the lobby. Ask her about the party and she will say to open it, and not to make it solo.
+
 ## Talking to her
 
 The first person who talks to her is the one she listens to for that session.
