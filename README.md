@@ -65,3 +65,16 @@ With the token on, a normal sentence can become one of the orders above, and tha
 python -m unittest discover -s partner -p test_*.py
 python -m unittest test_stack.py
 ```
+
+## Issues
+Lira may or may not be invincible... (she totally is)
+This can be used to kite and "cheese" enemies
+However, I still find this gameplay more enjoyable than playing it solo
+
+You still have to find her abilities, she does know them by default.
+You can trade them to her and i believe you can drop them and tell her to pick it up.
+
+The same can be said for her equipment, but truthfully, it doesnt matter much for her.
+
+I havent got to spend as much time on this as I would like and hope to expand upon it greatly.
+This is a very early build just to show what I have so far and allow others to test it out.
