@@ -167,7 +167,7 @@ class PrivacyTest(unittest.TestCase):
                 continue
             if path.name in skip_names or path.suffix.lower() in {".exe", ".dll", ".obj", ".log", ".pid", ".pyc"}:
                 continue
-            if "__pycache__" in path.parts:
+            if "__pycache__" in path.parts or ".git" in path.parts:
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
             for marker in markers:

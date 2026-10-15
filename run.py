@@ -1,13 +1,13 @@
-"""Run Lira against a local Blue Burst client.
+"""Run Lira's chat brain.
 
 python run.py --check     show the config, without the password or token
-python run.py --launch    start her client, then listen
-python run.py             listen to a client that is already running
+python run.py             listen for party chat
+
+She does not open a second copy of the game.
 """
 
 from __future__ import annotations
 
-import subprocess
 import sys
 import time
 from pathlib import Path
@@ -20,7 +20,7 @@ if str(PARTNER) not in sys.path:
     sys.path.insert(0, str(PARTNER))
 
 from chat_watch import LogTail, chat_path, parse_chat_line
-from config_file import describe, load_config, write_launch_cfg
+from config_file import describe, load_config
 from conversation import respond
 from llm import complete as llm_complete
 from session import Session
@@ -54,27 +54,6 @@ def say(text: str) -> None:
         print(f"could not speak ({err}): {safe}")
         return
     print("said: " + safe)
-
-
-def launch_client(cfg: dict) -> None:
-    if not cfg["account"]:
-        raise SystemExit("Set account in config.json to the login she should use.")
-    if not cfg["game_dir"]:
-        raise SystemExit("Set game_dir in config.json to the folder that contains psobb.exe.")
-    game = Path(cfg["game_dir"])
-    if not (game / "psobb.exe").is_file():
-        raise SystemExit(f"psobb.exe was not found in {game}")
-    exe = ROOT / "client" / "lira_launch.exe"
-    if not exe.is_file():
-        raise SystemExit("Build the client first. Run client\\build.bat")
-    cfg_path = ROOT / "client" / "launch.cfg"
-    write_launch_cfg(cfg, cfg_path)
-    try:
-        result = subprocess.run([str(exe)], cwd=str(exe.parent))
-    finally:
-        cfg_path.unlink(missing_ok=True)
-    if result.returncode != 0:
-        raise SystemExit(f"launcher exited {result.returncode}")
 
 
 def _fresh(seen: dict[str, float], key: str) -> bool:
@@ -141,7 +120,9 @@ def main(argv: list[str]) -> int:
         print("\n".join(describe(cfg)))
         return 0
     if "--launch" in argv:
-        launch_client(cfg)
+        print("Lira does not start a second game client. That was removed because it did not work.")
+        print("She logs into the server with the account in config.json.")
+        return 1
     session = Session(root=PARTNER, bot_name=cfg["character_name"])
 
     def complete(messages):
