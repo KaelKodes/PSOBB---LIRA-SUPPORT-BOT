@@ -1,0 +1,12 @@
+config.json
+client/launch.cfg
+client/*.log
+client/*.pid
+client/*.obj
+client/*.exe
+client/*.dll
+client/*.exp
+client/*.lib
+partner/chat/*
+!partner/chat/.gitignore
+**/__pycache__/
