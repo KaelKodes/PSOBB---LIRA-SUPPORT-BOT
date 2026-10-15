@@ -2,17 +2,20 @@
 
 Lira is a FOnewearl partner for Phantasy Star Online Blue Burst. She logs into the server on her own account and joins the lobby on that connection. You stay on your own game client.
 
-She does not open a second copy of the game. A second window was tried and removed because it did not work.
+She does not open a second copy of the game.
 
 ## Account and character
 
 Create an account for her on the server, the same way you create your own. Blue Burst logins are up to 16 characters, plain ASCII. Put that username and password in `config.json`.
 
-That login is enough for her to come online. If the account has no character yet, the login creates one: a FOnewearl named Lira, which lands on Pinkal. If that character is already on the account, she uses it. You do not build the character by hand in another window.
+That login is enough for her to come online. If the account has no character yet, the login creates one: a FOnewearl named Lira, which lands on Pinkal. If that character is already on the account, she uses it. You do not build the character by hand, though you can if youd like by doing so when you make the account.
 
 ## Configure
 
-Copy `config.example.json` to `config.json`. That file stays on your machine. Do not commit it.
+Copy `config.example.json` to `config.json`. That file stays on your machine. 
+**DO NOT SHARE IT.**
+Once you add your own LLM details, this becomes VERY PERSONAL information that others can use to access your tokens.
+**AGAIN, DO NOT SHARE IT.**
 
 | Field | Purpose |
 | --- | --- |
